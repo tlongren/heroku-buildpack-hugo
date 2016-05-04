@@ -23,7 +23,7 @@ HUGO_PACKAGE=https://github.com/spf13/hugo/releases/download/v${VERSION}/${FILE_
 # DevD
 DEVD_VERSION="0.5"
 DEVD_ARCHIVE_NAME=devd-${DEVD_VERSION}-linux64
-DEVD_FILE_NAME=${DEVD_ARCHIVE_NAME}.tar.gz
+DEVD_FILE_NAME=${DEVD_ARCHIVE_NAME}.tgz
 DEVD_PACKAGE=https://github.com/cortesi/devd/releases/download/v${DEVD_VERSION}/${DEVD_FILE_NAME}
 
 

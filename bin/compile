@@ -49,7 +49,7 @@ mv $CACHE_DIR/$ARCHIVE_NAME/$ARCHIVE_NAME $BUILD_DIR/hugo | indent
 echo "\n-----> Extracting DevD ${DEVD_VERSION} binaries to ${BUILD_DIR}/vendor/devd"
 mkdir -p $CACHE_DIR/$DEVD_ARCHIVE_NAME | indent
 tar -zxvf $CACHE_DIR/$DEVD_FILE_NAME -C $CACHE_DIR | indent
-mv $CACHE_DIR/$DEVD_ARCHIVE_NAME/$DEVD_ARCHIVE_NAME $BUILD_DIR/devd | indent
+mv $CACHE_DIR/$DEVD_ARCHIVE_NAME/devd $BUILD_DIR/devd | indent
 
 # Fetch a theme specified in the .hugotheme file
 if [ -e $BUILD_DIR/.hugotheme ]; then

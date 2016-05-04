@@ -3,5 +3,5 @@
 cat << EOF
 ---
 default_process_types:
-  web: "python -m SimpleHTTPServer \$PORT ./public"
+  web: "./hufo serve -p \$PORT"
 EOF

@@ -3,5 +3,5 @@
 cat << EOF
 ---
 default_process_types:
-  web: "./hugo serve -p \$PORT"
+  web: "./devd -p \$PORT ./public"
 EOF

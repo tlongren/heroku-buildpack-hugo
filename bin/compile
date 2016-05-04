@@ -21,10 +21,10 @@ FILE_NAME=${ARCHIVE_NAME}.tar.gz
 HUGO_PACKAGE=https://github.com/spf13/hugo/releases/download/v${VERSION}/${FILE_NAME}
 
 # DevD
-DEVD_VERSION="0.5"
-DEVD_ARCHIVE_NAME=devd-${DEVD_VERSION}-linux64
-DEVD_FILE_NAME=${DEVD_ARCHIVE_NAME}.tgz
-DEVD_PACKAGE=https://github.com/cortesi/devd/releases/download/v${DEVD_VERSION}/${DEVD_FILE_NAME}
+# DEVD_VERSION="0.5"
+# DEVD_ARCHIVE_NAME=devd-${DEVD_VERSION}-linux64
+# DEVD_FILE_NAME=${DEVD_ARCHIVE_NAME}.tgz
+# DEVD_PACKAGE=https://github.com/cortesi/devd/releases/download/v${DEVD_VERSION}/${DEVD_FILE_NAME}
 
 
 # Store the hugo package in the cache_dir ( persistent across builds )
@@ -34,11 +34,11 @@ if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
   curl $HUGO_PACKAGE -L -s -o $CACHE_DIR/$FILE_NAME | indent
 fi
 
-mkdir -p $CACHE_DIR
-if ! [ -e $CACHE_DIR/$DEVD_FILE_NAME ]; then
-  echo "\n-----> Fetching DevD ${DEVD_VERSION} binaries at ${DEVD_PACKAGE}"
-  curl $DEVD_PACKAGE -L -s -o $CACHE_DIR/$DEVD_FILE_NAME | indent
-fi
+# mkdir -p $CACHE_DIR
+# if ! [ -e $CACHE_DIR/$DEVD_FILE_NAME ]; then
+#   echo "\n-----> Fetching DevD ${DEVD_VERSION} binaries at ${DEVD_PACKAGE}"
+#   curl $DEVD_PACKAGE -L -s -o $CACHE_DIR/$DEVD_FILE_NAME | indent
+# fi
 
 # Extract the binary in the working directory
 echo "\n-----> Extracting Hugo ${VERSION} binaries to ${BUILD_DIR}/vendor/hugo"
@@ -46,18 +46,18 @@ mkdir -p $CACHE_DIR/$ARCHIVE_NAME | indent
 tar -zxvf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR | indent
 mv $CACHE_DIR/$ARCHIVE_NAME/$ARCHIVE_NAME $BUILD_DIR/hugo | indent
 
-echo "\n-----> Extracting DevD ${DEVD_VERSION} binaries to ${BUILD_DIR}/vendor/devd"
-mkdir -p $CACHE_DIR/$DEVD_ARCHIVE_NAME | indent
-tar -zxvf $CACHE_DIR/$DEVD_FILE_NAME -C $CACHE_DIR | indent
-mv $CACHE_DIR/$DEVD_ARCHIVE_NAME/devd $BUILD_DIR/devd | indent
+# echo "\n-----> Extracting DevD ${DEVD_VERSION} binaries to ${BUILD_DIR}/vendor/devd"
+# mkdir -p $CACHE_DIR/$DEVD_ARCHIVE_NAME | indent
+# tar -zxvf $CACHE_DIR/$DEVD_FILE_NAME -C $CACHE_DIR | indent
+# mv $CACHE_DIR/$DEVD_ARCHIVE_NAME/devd $BUILD_DIR/devd | indent
 
 # Fetch a theme specified in the .hugotheme file
-if [ -e $BUILD_DIR/.hugotheme ]; then
-  echo "\n-----> Getting the theme"
-  THEME_URL="`cat $BUILD_DIR/.hugotheme`"
-  rm -rf $BUILD_DIR/themes && mkdir $BUILD_DIR/themes && cd $BUILD_DIR/themes
-  git clone $THEME_URL
-fi
+# if [ -e $BUILD_DIR/.hugotheme ]; then
+#   echo "\n-----> Getting the theme"
+#   THEME_URL="`cat $BUILD_DIR/.hugotheme`"
+#   rm -rf $BUILD_DIR/themes && mkdir $BUILD_DIR/themes && cd $BUILD_DIR/themes
+#   git clone $THEME_URL
+# fi
 
 # Build the site
 echo "\n-----> Building the site"

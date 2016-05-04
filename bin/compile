@@ -34,7 +34,7 @@ if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
 fi
 
 mkdir -p $CACHE_DIR
-if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
+if ! [ -e $CACHE_DIR/$DEVD_FILE_NAME ]; then
   echo "\n-----> Fetching DevD ${DEVD_VERSION} binaries at ${DEVD_PACKAGE}"
   curl $DEVD_PACKAGE -L -s -o $CACHE_DIR/$DEVD_FILE_NAME | indent
 fi

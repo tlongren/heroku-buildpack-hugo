@@ -43,8 +43,8 @@ fi
 # Extract the binary in the working directory
 echo "\n-----> Extracting Hugo ${VERSION} binaries to ${BUILD_DIR}/vendor/hugo"
 mkdir -p $CACHE_DIR/$ARCHIVE_NAME | indent
-tar -zxvf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR | indent
-mv $CACHE_DIR/$ARCHIVE_NAME/$ARCHIVE_NAME $BUILD_DIR/hugo | indent
+tar -zxvf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR/$ARCHIVE_NAME | indent
+mv $CACHE_DIR/$ARCHIVE_NAME/hugo $BUILD_DIR/hugo | indent
 
 # echo "\n-----> Extracting DevD ${DEVD_VERSION} binaries to ${BUILD_DIR}/vendor/devd"
 # mkdir -p $CACHE_DIR/$DEVD_ARCHIVE_NAME | indent

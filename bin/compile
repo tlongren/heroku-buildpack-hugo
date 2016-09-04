@@ -63,4 +63,4 @@ mv $CACHE_DIR/$ARCHIVE_NAME/hugo $BUILD_DIR/hugo | indent
 echo "\n-----> Building the site"
 cd $BUILD_DIR
 mkdir -p static | indent
-./hugo | indent
+./hugo -v | indent
